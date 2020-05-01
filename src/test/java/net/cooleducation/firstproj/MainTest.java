@@ -6,7 +6,7 @@ import org.junit.Test;
 public class MainTest {
 
 	@Test
-	void test() {
+	public void test() {
 		System.out.println("Not yet implemented");
 	}
 
