@@ -3,6 +3,7 @@ node{
   git 'https://github.com/rksingh29/my-app'
   }
   stage('compile-package'){
-  mvn 'clean package'
+    def mvnhome = tool name: 'maven3', type: 'maven'
+    sh "${mvnhome}/bin/mvn package"
   }
 }
