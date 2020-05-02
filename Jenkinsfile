@@ -6,4 +6,9 @@ node{
     def mvnhome = tool name: 'maven3', type: 'maven'
     sh "${mvnhome}/bin/mvn package"
   }
+  stage('Copy to other Server'){
+    sshagent(['ssh-ec2']) {
+      sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.44.173:/home/ec2-user/builds'
+    }
+  }
 }
